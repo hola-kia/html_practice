@@ -1,0 +1,151 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body{
+  background: rgb(245,245,245);
+  color: rgb(46, 39, 53);
+  font-size: 25px;
+  font-family: Helvetica;
+  text-align: center;
+}
+
+.nav {
+  height: 35%;
+  background-image: url('images/bright.jpeg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  opacity: 0.9;
+  text-shadow: 0 0 8px black;
+}
+
+h1{
+  font-family: Courier;
+  color: f4a548;
+  font-weight: lighter;
+  font-size: 60px;
+  padding-top: 5%;
+  font-weight: 550;
+  text-decoration: underline;
+}
+
+h2 {
+  font-family: Courier;
+  color: 862a5c;
+  font-weight: lighter;
+  font-size: 30px;
+}
+
+a {
+  color: 862a5c;
+  font-size: 28px;
+  font-weight: 500;
+  border: 0.5px solid purple;
+  display: inline-block;
+  border-radius: 0.12em;
+  box-sizing: border-box;
+  text-decoration: none;
+  transition: all 0.2s;
+  padding: 5px 9px;
+  margin-bottom: 1%;
+}
+
+a:hover {
+  text-decoration: none;
+  color: 862a5c;
+  background-color: orange;
+}
+
+#link {
+  font-size: 38px;
+}
+
+p {
+  font-size: 20;
+}
+
+#main {
+  padding-top: 1%;
+  color: 862a5c;
+  font-size: 25px;
+}
+
+.card {
+  /* padding-bottom: 30px; */
+  width: 400px;
+}
+
+.card p {
+  padding-top: 7px;
+}
+
+main {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  height: 35%;
+  /* display: grid;
+  grid-template-columns: 1fr 1fr 1fr; */
+}
+
+@media only screen and (max-width: 800px) {
+  main {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    height: 70%;
+    margin-top: 5%;
+  }
+  #link {
+    margin-top: 5%;
+  }
+
+}
+
+footer {
+  width: 100%;
+  height: 12%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+}
+
+#icons {
+  color: rgb(46, 39, 53);
+  border: none;
+}
+
+.bouncy {
+  font-size: 45px;
+}
+
+#bottom {
+  font-family: Courier;
+  margin-top: 1.2%;
+  font-size: 15px;
+}
+
+p i {
+  color: 862a5c; 
+}
+
+.bounce {
+  display: inline-block;
+  position: relative;
+  -moz-animation: bounce 5s infinite linear;
+  -o-animation: bounce 5s infinite linear;
+  -webkit-animation: bounce 5s infinite linear;
+  animation: bounce 5s infinite linear;
+}
+
+ @keyframes bounce {
+    0% { top: 0; }
+    40% { top: 0; }
+    43% { top: -0.9em; }
+    46% { top: 0; }
+    48% { top: -0.4em; }
+    50% { top: 0; }
+    100% { top: 0; }
+} 
