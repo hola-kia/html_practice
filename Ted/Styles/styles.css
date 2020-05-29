@@ -1,0 +1,743 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: "futura medium bt", "Jost", arial, sans-serif;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    cursor: pointer;
+}
+
+h2 {
+    color: #212121;
+    font-size: 22px;
+    line-height: 24px;
+    letter-spacing: 0.05em;
+}
+
+h3 {
+    font-weight: 200;
+    font-size: 16px;
+    letter-spacing: 0.15em;
+    color: #212121;
+}
+
+footer {
+    border-top: 1px solid #e3e6e4;
+    display: flex;
+    color: #555555;
+}
+
+/* NAVBAR SECTION */
+
+#scroll-top {
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    z-index: 11;
+}
+
+#scroll-bottom {
+    position: relative;
+    width: 100%;
+    background-color: #fff;
+    z-index: 11;
+}
+
+.accordion-women-content a:hover {
+    text-decoration: underline;
+}
+
+.accordion-men-content a:hover {
+    text-decoration: underline;
+}
+
+.accordion-home-content a:hover {
+    text-decoration: underline;
+}
+
+.accordion-offers-content a:hover {
+    text-decoration: underline;
+}
+
+nav .top {
+    height: 28px;
+    background-color: #eee;
+    color: #555555;
+    display: flex;
+    font-size: 11px;
+    justify-content: space-between;
+    opacity: 0.85;
+}
+
+#phone  a {
+    margin: 0 15px;
+}
+
+.sign-in {
+    display: flex;
+    width: 240px;
+    justify-content: space-around;
+    margin-right: 10px;
+}
+
+.top a, .top li {
+    line-height: 28px;
+    letter-spacing: 1px;
+}
+
+.middle {
+    height: 60px;
+    border-bottom: 1px solid #e3e6e4;
+    border-top: 1px solid #e3e6e4;
+    display: flex;
+    justify-content: space-between;
+    font-size: 14px;
+    color: #555555;
+}
+
+.middle-left ul, .middle-right ul {
+    display: flex;
+}
+
+.middle-left ul li {
+    margin: 0 24px;
+    line-height: 60px;
+    letter-spacing: 1.2px;
+    font-weight: 300;
+}
+
+button {
+    font-weight: 300;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    font-size: inherit;
+    color: inherit;
+    font-family: inherit;
+    letter-spacing: 1.2px;
+    height: 100%;
+    background-color: white;
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+    line-height: 60px;
+    margin-right: 185px;
+}
+
+.logo img {
+    vertical-align: middle;
+}
+
+.middle-right ul li {
+    font-size: 15px;
+    margin: 0 24px;
+    line-height: 60px;
+    font-size: 20px;
+    opacity: 0.7;
+}
+
+.bottom span {
+    font-size: 12px;
+    color: #555555;
+    line-height: 24px;
+    padding: 0 4%;
+    letter-spacing: 0.025em;
+}
+
+.bottom {
+    text-align: center;
+    border-bottom: 1px solid #E0E0E0;
+    padding: 8px 0;
+}
+
+#covid {
+    border-right: 1px solid #E0E0E0;
+}
+
+/*  ----------------- ACCORDION - WOMEN ---------------------- */
+
+#accordion-women {
+    display: none;
+    overflow: hidden;
+}
+
+#accordion-men {
+    display: none;
+    overflow: hidden;
+}
+
+.accordion-women-content, .accordion-men-content, .accordion-home-content, .accordion-offers-content {
+    display: flex;
+    margin-bottom: 27px;
+}
+
+.menu-bottom {
+    display: inline-block;
+}
+
+.img-container {
+    width: 40%;
+}
+
+.first-column, .second-column, .third-column {
+    width: 20%;
+    line-height: 25px;
+    margin-left: 30px;
+    font-size: 13px;
+    color: #555;
+    letter-spacing: 1px;
+    font-weight: 300;
+}
+
+.menu-item span a {
+    display: block;
+    font-weight: 500;
+}
+
+.menu-item {
+    padding-top: 25px;
+}
+
+.img-container {
+    background-image: url(https://media.tedbaker.com/image/upload/f_auto,q_auto,fl_lossy/w_960/content/2020/sitewide/meganav/wk_12/WW-Nav-Tile-Single_2x-UK.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    margin: 25px 25px 0 0;
+}
+
+#men-img-container {
+    background-image: url("https://media.tedbaker.com/image/upload/f_auto,q_auto,fl_lossy/w_960/content/2020/sitewide/meganav/wk_12/MW-Nav-Tile-Single_2x-UK.png");
+}
+
+
+#message {
+    background-color: #ffffff;
+    width: 40%;
+    padding: 35px 10px;
+    margin-left: 45px;
+    position: relative;
+    top: 38%;
+}
+
+#message span {
+    display: block;
+    text-align: center;
+    letter-spacing: 0.2em;
+    color: #555;
+}
+
+#step-inside {
+    font-weight: 200;
+    font-size: 16px;
+    line-height: 20px;
+    margin-bottom: 10px;
+}
+
+#stay-home {
+    font-size: 12px;
+    line-height: 26px;
+    font-weight: 500;
+}
+
+.menu-bottom {
+    font-size: 13px;
+    letter-spacing: 0.1em;
+    color: #555;
+    background-color: #eeeeee;
+    line-height: 24px;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 4%;
+}
+
+.menu-bottom span {
+    padding: 6px 0;
+    font-weight: 600;
+}
+
+/* HOME ACCORDION */
+
+#home-first-column {
+    width: 25%;
+}
+
+.accordion-home-content {
+    height: 450px;
+}
+
+.accordion-home-content .img-container {
+    width: 25%;
+}
+
+#accordion-home {
+    display: none;
+    overflow: hidden;
+}
+
+#home-img-container-1 {
+    background-image: url("https://media.tedbaker.com/image/upload/f_auto,q_auto,fl_lossy/w_480/content/2020/sitewide/meganav/wk_11/Home-Nav-Tile_1_2x.png");
+}
+
+#home-img-container-2 {
+    background-image: url("https://media.tedbaker.com/image/upload/f_auto,q_auto,fl_lossy/w_480/content/2020/sitewide/meganav/wk_11/Home-Nav-Tile_2_2x.png");
+}
+
+#home-img-container-3 {
+    background-image: url("https://media.tedbaker.com/image/upload/f_auto,q_auto,fl_lossy/w_480/content/2020/sitewide/meganav/wk_11/Home-Nav-Tile_3_2x-UK.png")
+}
+
+#home-message {
+    background-color: #ffffff;
+    width: 80%;
+    padding: 15px 15px;
+    margin: 17px;
+    position: relative;
+    top: 72%;
+}
+
+#home-message span {
+    display: block;
+    text-align: center;
+    letter-spacing: 0.2em;
+    color: #555;
+}
+
+/* OFFERS ACCORDION */
+
+#accordion-offers {
+    display: none;
+    overflow: hidden;
+}
+
+.accordion-offers-content .img-container {
+    width: 20%;
+}
+
+#offers-message {
+    background-color: #ffffff;
+    width: 80%;
+    padding: 15px 15px;
+    margin: 10px;
+    position: relative;
+    top: 67%;
+}
+
+#offers-img-container-3 #offers-message {
+    top: 61%;
+}
+
+#offers-message span {
+    display: block;
+    text-align: center;
+    letter-spacing: 0.2em;
+    color: #555;
+}
+
+#offers-message #stay-home {
+    line-height: 17px;
+}
+
+#offers-img-container-1 {
+    background-image: url("https://media.tedbaker.com/image/upload/v1588259756/content/2020/sitewide/meganav/wk_14/Home_Gifts-Nav-Tile_category1-UK_2x.png");
+}
+
+#offers-img-container-2 {
+    background-image: url("https://media.tedbaker.com/image/upload/f_auto,q_auto,fl_lossy/w_480/content/2020/sitewide/meganav/wk_14/Home_Gifts-Nav-Tile_category2-UK_2x.png");
+}
+
+#offers-img-container-3 {
+    background-image: url("https://media.tedbaker.com/image/upload/f_auto,q_auto,fl_lossy/w_480/content/2020/sitewide/meganav/wk_14/Home_Gifts-Nav-Tile_category3-UK_2x.png");
+}
+
+#offers-img-container-4 {
+    background-image: url("https://media.tedbaker.com/image/upload/v1588259805/content/2020/sitewide/meganav/wk_14/Home_Gifts-Nav-Tile_category4_2xUK_2x.png");
+}
+
+#offers-first-column {
+    margin-top: 20px;
+}
+
+/* HEADER SECTION */
+
+.top-pics {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 36px;
+}
+
+.top-pics-sections {
+    padding: 40px 17px 0 17px;
+}
+
+.zoomin {
+    height: 533px;
+    width: 355px;
+    overflow: hidden;
+}
+
+.zoomin img {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.zoomin img:hover {
+    width: 360px;
+    height: 538px;
+    cursor: pointer;
+}
+
+.top-pics-text {
+    margin-top: 20px;
+}
+
+.top-pics-text h3, .top-pics-text span, .top-pics-buttons-underline {
+    display: block;
+    color: #212121;
+    letter-spacing: 0.05em;
+}
+
+.top-pics-text h3 {
+    line-height: 24px;
+    margin-bottom: 10px;
+}
+
+.top-pics-text span {
+    font-size: 14px;
+    line-height: 20px;
+    margin-bottom: 20px;
+}
+
+.top-pics-buttons-underline a {
+    display: inline-block;
+    font-size: 14px;
+    line-height: 20px;
+    padding: 10px 0;
+    font-weight: 600;
+}
+
+.top-pics-buttons-underline a::after {
+    content: "";
+    width: calc(100% - .05em);
+    height: 2px;
+    display: block;
+    background-size: 200% 100%;
+    transition: 0.3s ease 0s, left 0.3s ease 0s;  
+    background: none repeat scroll 0 0 #212121;
+}
+
+
+.top-pics-buttons-underline a:hover::after {
+    width: 0;
+}
+
+.main-top {
+    text-align: center;
+    background-image: url(https://media.tedbaker.com/b_white,o_10,w_1920/content/2020/LP/WW/wk_16/Featured_Main_Background-WW_2x.png);
+    height: 850px;
+}
+
+.main-top h2 {
+    padding: 36px 0;
+}
+
+/* CAROUSEL SECTION */
+
+.carousel-wrapper {
+    width: 533px;
+    overflow: hidden;
+    position: relative;
+    margin: 0 auto;
+}
+
+.active {
+    height: 740px;
+}
+
+.active .carousel-card {
+    position: absolute;
+    top: 740px;
+}
+
+.active div.current {
+    top: 0;
+}
+
+.carousel__button--prev,
+.carousel__button--next {
+  position: relative;
+  /*top:50%;*/
+  bottom: 500px;
+  width: 3rem;
+  height: 3rem;
+  /*background-color: #FFF;*/
+  transform: translateY(-50%);
+  border-radius: 50%;
+  cursor: pointer; 
+  z-index: 10; 
+  border: 1px solid black;
+}
+.carousel__button--prev {
+  left:0;
+  margin-left: 350px;
+}
+.carousel__button--next {
+  left: 1025px;
+  bottom: 450px;
+}
+.carousel__button--prev::after,
+.carousel__button--next::after {
+  content: " ";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  left: 54%;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+.carousel__button--next::after {
+  left: 47%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+/* MAIN-BOTTOM SECTION */
+
+.round-pics {
+    display: flex;
+    justify-content: space-around;
+    margin: 0 114px;
+    padding: 36px 0;
+}
+
+.round-pic-block {
+    text-align: center;
+}
+
+.round-img-container {
+    overflow: hidden;
+    border-radius: 50%;
+    height: 156px;
+    width: 156px;
+    color: #212121;
+}
+
+.round-img-container img {
+    height: auto;
+    width: 100%;
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.round-img-container img:hover {
+    width: 160px;
+    /*height: 160px;*/
+    cursor: pointer;
+}
+
+
+.bottom-pics {
+    text-align: center;
+    padding: 36px 0;
+    background-color: #F5F5F5;
+}
+
+.bottom-pics h2 {
+    margin-bottom: 36px;
+}
+
+.bottom-pics-box {
+    margin: 0 144px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.bottom-pic-card {
+    width: 31.5%;
+}
+
+.zoom {
+    height: 243.36px;
+    width: 324px;
+    overflow: hidden;
+}
+
+.zoom img {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -ms-transition: all 0.5s ease;
+    transition: all 0.5s ease;
+}
+
+.zoom img:hover {
+    width: 329px;
+    /*height: 247px;*/
+    cursor: pointer;
+}
+
+.bottom-pic-card img {
+    width: 100%;
+    height: auto;
+}
+
+.bottom-pics-text {
+    text-align: left;
+}
+
+.bottom-pics-text h3 {
+    margin-top: 20px;
+}
+
+
+/* FOOTER SECTION */
+
+.footer-left {
+    padding: 30px 0 15px 30px;
+    width: 520px;
+    /*box-sizing: border-box;*/
+}
+
+.sign-up {
+    display: flex;
+    margin-bottom: 17px;
+}
+
+h4 {
+    line-height: 17px;
+    font-size: 13.5px;
+    letter-spacing: 2px;
+    font-weight: 600;
+}
+
+.sign-up i {
+    font-size: 20px;
+    margin-right: 7px;
+}
+
+#email {
+    width: 90%;
+    border: 1px solid #87898c;
+    font-size: 11.5px;
+    margin-bottom: 3px;
+    padding: 7px 10px 7px;
+    color: #555555;
+}
+
+.buttons {
+    margin-top: 16px;
+    width: 100%;
+    display: flex;
+}
+
+.buttons div {
+    width: 48%;
+    margin-right: 4%;
+    height: 40px;
+    background-color: #065a64;
+    color: white;
+    font-size: 13.5px;
+    text-align: center;
+    line-height: 40px;
+    letter-spacing: 2px;
+    font-weight: 300;
+}
+
+.buttons div:hover {
+    background-color: #043C43;
+}
+
+.footer-left p {
+    font-size: 12px;
+    margin-top: 15px;
+    margin-bottom: 20px;
+    word-spacing: 2px;
+    font-weight: 400;
+    line-height: 18px;
+    letter-spacing: 1px;
+}
+
+.footer-left p a {
+    text-decoration: underline;
+}
+
+#copyright {
+    margin-bottom: 0;
+    font-size: 11px;
+    padding-top: 17px;
+}
+
+.footer-right {
+    width: 100%;
+    display:flex;
+    padding-top: 27px;
+}
+
+.footer-right-section {
+    width: 25%;
+    padding: 0 20px;
+}
+
+.footer-right-section a {
+    font-size: 13.5px;
+    line-height: 13px;
+    margin-bottom: 10px;
+    letter-spacing: 2px;
+    font-weight: 500;
+}
+
+.footer-right-section a:hover {
+    text-decoration: underline;
+}
+
+.footer-right-section li a {
+    font-size: 13px;
+    line-height: 24px;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+
+#follow ul {
+    display: flex;
+}
+
+#follow li {
+    color: #fff;
+    background-color: #065a64;
+    font-size: 28px;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    overflow: hidden;
+    border-radius: 100%;
+    margin: 20px 25px 0 0;
+}
+
+#follow #blog {
+    font-size: 11px;
+    line-height: 43px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    padding-left: 2px;
+}
+
+#follow li:hover {
+    cursor: pointer;
+    background-color: #043C43;
+}
+
