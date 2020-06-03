@@ -7,7 +7,7 @@
         <link href="Styles/fonts/futura/futura medium bt.ttf" rel="stylesheet">
         <link href="https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,200;0,300;0,400;0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
         <script src="https://kit.fontawesome.com/0e4cd4ec45.js" crossorigin="anonymous"></script>
-        <script src="JS/main.js"></script>
+        
     </head>
 
     <body>
@@ -491,7 +491,7 @@
                 <div class='carousel-wrapper active'>
                     <div class="carousel">
                         <div class="carousel-card current">
-                            <img class="carousel_photo initial" src="https://media.tedbaker.com/f_auto,q_auto:eco,fl_lossy/w_768/content/2020/LP/WW/wk_16/Explore-Left_2x-WW.png" alt="Shop Jumpsuits &amp; Playsuits" loading="lazy" width="540" height="533"/>
+                            <img class="carousel_photo initial" src="https://media.tedbaker.com/f_auto,q_auto:eco,fl_lossy/w_768/content/2020/LP/WW/wk_16/Explore-Left_2x-WW.png" alt="Shop Jumpsuits &amp; Playsuits" loading="lazy" width="520" height="533"/>
                             <div class="top-pics-text">
                                <h3>ONTO A WINNER</h3>
                                 <span>Practie a little social distancing in something stylish.</span>
@@ -513,10 +513,11 @@
                         </div>
 
                         <div class="carousel-card">
-                            <img class="carousel_photo" src="https://media.tedbaker.com/f_auto,q_auto:eco,fl_lossy/w_480/content/2020/LP/WW/wk_16/Highlights-3_2x-WW.png" alt="Shop Tops" loading="lazy" width="355" height="533"/>
+                            <img class="carousel_photo small" src="https://media.tedbaker.com/f_auto,q_auto:eco,fl_lossy/w_768/content/2020/LP/WW/wk_18/Explore-Left_2x-UK-WW.png" alt="Shop Tops" loading="lazy" width="520" height="533"/>
                             <div class="top-pics-text">
                                <h3>ON TOP OF IT</h3>
-                               <span>From park strolls to at home date night, we've got tops to wear whatever you're doing.</span>
+                               <span>From park strolls to at home date night, we've got tops to wear<br>
+                                whatever you're doing.</span>
                                <div class="top-pics-buttons-underline">
                                     <a>Shop Tops</a>
                                </div>
@@ -527,9 +528,13 @@
                     </div>
 
                 </div>
+                <!-- 
+                <div class="next" onclick="navigate(1)"></div>
+                <div class="prev" onclick="navigate(-1)"></div>
+                -->
 
-                <div class="carousel__button--next" onclick="navigate(1)"></div>
-                <div class="carousel__button--prev" onclick="navigate(-1)"></div>
+                <div class="next"></div>
+                <div class="prev is-hidden"></div>
 
             </div>
 
@@ -711,6 +716,8 @@
             </div>
 
         </footer>
+
+        <script src="JS/main.js"></script>
 
     </body>
 </html>

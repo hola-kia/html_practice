@@ -448,6 +448,8 @@ button {
     text-align: center;
     background-image: url(https://media.tedbaker.com/b_white,o_10,w_1920/content/2020/LP/WW/wk_16/Featured_Main_Background-WW_2x.png);
     height: 850px;
+    width: 100%;
+    position: relative;
 }
 
 .main-top h2 {
@@ -457,6 +459,72 @@ button {
 /* CAROUSEL SECTION */
 
 .carousel-wrapper {
+   height: 700px;
+   width: 520px;
+   margin: 0 auto;
+   overflow: hidden;
+}
+
+.carousel {
+    height: auto;
+    width: 100%;
+    transition: transform 500ms ease-in;
+    position: relative;
+}
+
+.carousel-card {
+    position: absolute;
+    width: 520px;
+    height: 700px;
+}
+
+.prev,
+.next {
+  position: absolute;
+  
+  bottom: 500px;
+  width: 3rem;
+  height: 3rem;
+  
+  transform: translateY(-50%);
+  border-radius: 50%;
+  cursor: pointer; 
+  z-index: 10; 
+  border: 1px solid black;
+}
+
+.prev {
+  left:0;
+  bottom:450px;
+  margin-left: 350px;
+}
+
+.next {
+  left: 1015px;
+  bottom: 450px;
+}
+.prev::after,
+.next::after {
+  content: " ";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  top: 50%;
+  left: 54%;
+  border-right: 2px solid black;
+  border-bottom: 2px solid black;
+  transform: translate(-50%, -50%) rotate(135deg);
+}
+.next::after {
+  left: 47%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+} 
+
+.is-hidden {
+    display: none;
+}
+
+/*.carousel-wrapper {
     width: 533px;
     overflow: hidden;
     position: relative;
@@ -479,11 +547,11 @@ button {
 .carousel__button--prev,
 .carousel__button--next {
   position: relative;
-  /*top:50%;*/
+  
   bottom: 500px;
   width: 3rem;
   height: 3rem;
-  /*background-color: #FFF;*/
+  
   transform: translateY(-50%);
   border-radius: 50%;
   cursor: pointer; 
@@ -495,7 +563,7 @@ button {
   margin-left: 350px;
 }
 .carousel__button--next {
-  left: 1025px;
+  left: 1015px;
   bottom: 450px;
 }
 .carousel__button--prev::after,
@@ -513,7 +581,7 @@ button {
 .carousel__button--next::after {
   left: 47%;
   transform: translate(-50%, -50%) rotate(-45deg);
-}
+} */
 
 /* MAIN-BOTTOM SECTION */
 

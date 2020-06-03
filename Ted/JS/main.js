@@ -1,5 +1,5 @@
 
-
+// @ts-check
 /* const acc = document.getElementsByClassName('event');
 
 const eventHandlerFunction = () => {
@@ -118,11 +118,90 @@ function mouseoutOffers() {
 
 // CAROUSEL SECTION //
 
+const carousel = document.querySelector('.carousel');
+const cards = Array.from(carousel.children);
+const next = document.querySelector('.next');
+const prev = document.querySelector('.prev');
+
+//get card width
+const cardWidth = cards[0].getBoundingClientRect().width;
+
+//arrange cards next to each other with position:absolute;
+
+/*cards[0].style.left = 412.5 + 'px';
+cards[1].style.left = cardWidth + 412.5 + 'px';
+cards[2].style.left = (2 * cardWidth) + 412.5 + 'px'; */
+
+/*cards.forEach((card, index) => {
+  card.style.left = (cardWidth * index) + 412.5 + 'px';
+}); */
+
+const setCardsPosition = (card, index) => {
+  card.style.left = cardWidth * index + 'px';
+};
+
+cards.forEach(setCardsPosition);
+
+//console.log(card);
+//console.log(cardWidth);
+
+const moveToCard = (carousel, currentCard, targetCard) => {
+  carousel.style.transform = 'translateX(-' + targetCard.style.left + ')';
+  currentCard.classList.remove('current');
+  targetCard.classList.add('current');
+}
+
+const hideArrows = (cards, next, prev, targetIndex) => {
+  if(targetIndex === 0) {
+    prev.classList.add('is-hidden');
+    next.classList.remove('is-hidden');
+  } else if(targetIndex === cards.length - 1) {
+    prev.classList.remove('is-hidden');
+    next.classList.add('is-hidden');
+  } else {
+    prev.classList.remove('is-hidden');
+    next.classList.remove('is-hidden');
+  }
+};
+
+//add event listeners on buttons
+
+next.addEventListener('click', event => {
+  const currentCard = carousel.querySelector('.current');
+  const nextCard = currentCard.nextElementSibling;
+  const nextIndex = cards.findIndex(card => card === nextCard);
+  
+  moveToCard(carousel, currentCard, nextCard);
+  hideArrows(cards, next, prev, nextIndex);
+})
+
+prev.addEventListener('click', event => {
+  const currentCard = carousel.querySelector('.current');
+  const prevCard = currentCard.previousElementSibling;
+  const prevIndex = cards.findIndex(card => card === prevCard);
+
+  moveToCard(carousel, currentCard, prevCard);
+  hideArrows(cards, next, prev, prevIndex);
+})
+
+/*const amountToMove = nextCard.style.left;
+  
+  carousel.style.transform = 'translateX(-' + amountToMove + ')';
+  currentCard.classList.remove('current');
+  nextCard.classList.add('current');*/
+
+
+
+
+
+/*
 //carousel = (function(){
+  
   const box = document.getElementsByClassName('carousel-wrapper');
   //var next = box.querySelector('.carousel__button--next');
   //var prev = box.querySelector('.carousel__button--prev');
-  const items = document.getElementsByClassName('carousel-card');
+  let items = document.getElementsByClassName('carousel-card');
+  console.log(items);
   let counter = 0;
   const amount = items.length;
   let current = items[0];
@@ -131,6 +210,7 @@ function mouseoutOffers() {
 
   function navigate(direction) {
     //box.classList.add('active');
+    console.log(items);
     current.classList.remove('current');
     counter = counter + direction;
     if (direction === -1 && counter < 0) { 
@@ -147,11 +227,11 @@ function mouseoutOffers() {
   });
   prev.addEventListener('click', function(ev) {
     navigate(-1);
-  });*/
+  });
   navigate(0);
 //});
 
-
+*/
 
 /*
 let slideIndex = 0;
