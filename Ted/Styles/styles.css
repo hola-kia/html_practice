@@ -524,65 +524,6 @@ button {
     display: none;
 }
 
-/*.carousel-wrapper {
-    width: 533px;
-    overflow: hidden;
-    position: relative;
-    margin: 0 auto;
-}
-
-.active {
-    height: 740px;
-}
-
-.active .carousel-card {
-    position: absolute;
-    top: 740px;
-}
-
-.active div.current {
-    top: 0;
-}
-
-.carousel__button--prev,
-.carousel__button--next {
-  position: relative;
-  
-  bottom: 500px;
-  width: 3rem;
-  height: 3rem;
-  
-  transform: translateY(-50%);
-  border-radius: 50%;
-  cursor: pointer; 
-  z-index: 10; 
-  border: 1px solid black;
-}
-.carousel__button--prev {
-  left:0;
-  margin-left: 350px;
-}
-.carousel__button--next {
-  left: 1015px;
-  bottom: 450px;
-}
-.carousel__button--prev::after,
-.carousel__button--next::after {
-  content: " ";
-  position: absolute;
-  width: 10px;
-  height: 10px;
-  top: 50%;
-  left: 54%;
-  border-right: 2px solid black;
-  border-bottom: 2px solid black;
-  transform: translate(-50%, -50%) rotate(135deg);
-}
-.carousel__button--next::after {
-  left: 47%;
-  transform: translate(-50%, -50%) rotate(-45deg);
-} */
-
 /* MAIN-BOTTOM SECTION */
 
 .round-pics {
