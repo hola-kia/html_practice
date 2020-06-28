@@ -2,7 +2,7 @@ let currentSelectedBox;
 
 const selectBox = (selectedBox) => {
     if (selectedBox.parentNode.id !== 'numbers') {
-        if (selectedBox.id === '0') {
+        if (selectedBox.getAttribute('data-row') === '0') {
             selectedBox.parentNode.classList.add('parentBoxColor');
         } else {
             selectedBox.classList.add('box-border');
@@ -11,7 +11,7 @@ const selectBox = (selectedBox) => {
             selectedBoxColumnHeader.classList.add('parentBoxColor');
 
             const rowHeaders = document.getElementById('numbers').children;
-            const selectedBoxRowHeader = rowHeaders[parseInt(selectedBox.id)];
+            const selectedBoxRowHeader = rowHeaders[parseInt(selectedBox.getAttribute('data-row'))];
             selectedBoxRowHeader.classList.add('parentBoxColor');
         }
     }
