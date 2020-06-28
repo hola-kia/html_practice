@@ -12,9 +12,7 @@ function selectHandler(event) {
 
             const rowHeaders = document.getElementById('numbers').children;
             const selectedBoxRowHeader = rowHeaders[parseInt(selectedBox.id)];
-            if (selectedBox.id === selectedBoxRowHeader.innerHTML) {
-                selectedBoxRowHeader.classList.add('parentBoxColor');
-            }
+            selectedBoxRowHeader.classList.add('parentBoxColor');
         }
     }
 }
