@@ -1,20 +1,20 @@
 function selectHandler(event) {
     const selectedBox = event.path[0];
 
-    if (selectedBox.id === '0') {
-        selectedBox.parentNode.classList.add('parentBoxColor');
-    } else if (selectedBox.parentNode.id === 'numbers') {
-        return;
-    } else {
-        selectedBox.classList.add('box-border');
+    if (selectedBox.parentNode.id !== 'numbers') {
+        if (selectedBox.id === '0') {
+            selectedBox.parentNode.classList.add('parentBoxColor');
+        } else {
+            selectedBox.classList.add('box-border');
 
-        const selectedBoxColumnHeader = selectedBox.parentNode.firstElementChild;
-        selectedBoxColumnHeader.classList.add('parentBoxColor');
+            const selectedBoxColumnHeader = selectedBox.parentNode.firstElementChild;
+            selectedBoxColumnHeader.classList.add('parentBoxColor');
 
-        const rowHeaders = document.getElementById('numbers').children;
-        const selectedBoxRowHeader = rowHeaders[parseInt(selectedBox.id)];
-        if (selectedBox.id === selectedBoxRowHeader.innerHTML) {
-            selectedBoxRowHeader.classList.add('parentBoxColor');
+            const rowHeaders = document.getElementById('numbers').children;
+            const selectedBoxRowHeader = rowHeaders[parseInt(selectedBox.id)];
+            if (selectedBox.id === selectedBoxRowHeader.innerHTML) {
+                selectedBoxRowHeader.classList.add('parentBoxColor');
+            }
         }
     }
 }
