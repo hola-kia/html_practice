@@ -26,8 +26,9 @@ const deselectColumns = (columns) => {
     }
 };
 const onBoxClicked = (event) => {
-    deselectColumns(event.path[2].children);
-    selectBox(event.path[0]);
+    const selectedBox = event.currentTarget;
+    deselectColumns(selectedBox.parentNode.parentNode.children);
+    selectBox(selectedBox);
 };
 
 const boxes = document.getElementsByClassName('box');
