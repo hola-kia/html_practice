@@ -41,8 +41,8 @@ Array.from(boxes).forEach(box => box.addEventListener('click', onBoxClicked));
 const input = document.getElementById('fxInput');
 const selectedBox = document.getElementsByClassName('box box-border');
 
-function typeHandler() {
+function inputHandler() {
     selectedBox[0].innerHTML = input.value;
 }
 
-input.addEventListener('keyup', typeHandler);
+input.addEventListener('input', inputHandler);
