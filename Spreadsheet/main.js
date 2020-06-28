@@ -31,10 +31,8 @@ function deselectHandler(event) {
         const columnCells = columns[columnIndex].children;
         const cellCount = columnCells.length;
         for (let cellIndex = 0; cellIndex < cellCount; cellIndex++) {
-            if (columnCells[cellIndex].classList.value == 'box parentBoxColor' || columnCells[cellIndex].classList.value == 'box box-border') {
-                columnCells[cellIndex].classList.remove('parentBoxColor');
-                columnCells[cellIndex].classList.remove('box-border');
-            }
+            columnCells[cellIndex].classList.remove('parentBoxColor');
+            columnCells[cellIndex].classList.remove('box-border');
         }
     }
 }
