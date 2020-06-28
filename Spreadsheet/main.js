@@ -23,11 +23,6 @@ function deselectHandler(event) {
     const columns = event.path[2].children;
     const columnCount = columns.length;
     for (let columnIndex = 0; columnIndex < columnCount; columnIndex++) {
-        if (columns[columnIndex].classList.value === 'box parentBoxColor') {
-            console.log(columns[columnIndex]);
-            columns[columnIndex].classList.remove('parentBoxColor');
-        }
-
         const columnCells = columns[columnIndex].children;
         const cellCount = columnCells.length;
         for (let cellIndex = 0; cellIndex < cellCount; cellIndex++) {
