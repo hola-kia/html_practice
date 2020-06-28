@@ -44,17 +44,16 @@ header {
     border: 1px solid #01A9B4;
     border-width: 1px 0;
     width: 100%;
-
 }
 
 #fx img {
-    padding-top: 5px;    
+    padding-top: 5px;
 }
 
 #fx {
     padding: 0 10px;
     /* border-right: 1px solid #e8eaed; */
-} 
+}
 
 #table-input {
     height: 35px;
