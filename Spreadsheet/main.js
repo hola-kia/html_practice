@@ -41,8 +41,10 @@ Array.from(boxes).forEach(box => box.addEventListener('click', onBoxClicked));
 const input = document.getElementById('fxInput');
 const selectedBox = document.getElementsByClassName('box box-border');
 
-function inputHandler() {
-    selectedBox[0].innerHTML = input.value;
-}
+const inputHandler = () => {
+    if (selectedBox[0]) {
+        selectedBox[0].innerHTML = input.value;
+    }
+};
 
 input.addEventListener('input', inputHandler);
