@@ -73,7 +73,7 @@ header {
     overflow: scroll;
 }
 
-.box {
+.cell {
     border: 1px solid #01A9B4;
     width: 100px;
     height: 30px;
@@ -81,7 +81,7 @@ header {
     line-height: 30px;
 }
 
-.box-border {
+.selectedCell {
     border: 1px solid orange;
     background-color: white;
     font-size: 15px;
@@ -89,10 +89,10 @@ header {
     text-align: center;
 }
 
-.parentBoxColor {
+.selectedHeader {
     background-color: #FBFD8A;
 }
 
-#numbers .box {
+#rowHeaders .cell {
     width: 61px;
 }

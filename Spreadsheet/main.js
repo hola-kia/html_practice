@@ -1,18 +1,18 @@
-let currentSelectedBox;
+let currentSelectedCell;
 
-const selectBox = (selectedBox) => {
-    if (selectedBox.parentNode.id !== 'numbers') {
-        if (selectedBox.getAttribute('data-row') === '0') {
-            selectedBox.parentNode.classList.add('parentBoxColor');
+const selectCell = (selectedCell) => {
+    if (selectedCell.parentNode.id !== 'rowHeaders') {
+        if (selectedCell.getAttribute('data-row') === '0') {
+            selectedCell.parentNode.classList.add('selectedHeader');
         } else {
-            selectedBox.classList.add('box-border');
+            selectedCell.classList.add('selectedCell');
 
-            const selectedBoxColumnHeader = selectedBox.parentNode.firstElementChild;
-            selectedBoxColumnHeader.classList.add('parentBoxColor');
+            const selectedCellColumnHeader = selectedCell.parentNode.firstElementChild;
+            selectedCellColumnHeader.classList.add('selectedHeader');
 
-            const rowHeaders = document.getElementById('numbers').children;
-            const selectedBoxRowHeader = rowHeaders[parseInt(selectedBox.getAttribute('data-row'))];
-            selectedBoxRowHeader.classList.add('parentBoxColor');
+            const rowHeaders = document.getElementById('rowHeaders').children;
+            const selectedCellRowHeader = rowHeaders[parseInt(selectedCell.getAttribute('data-row'))];
+            selectedCellRowHeader.classList.add('selectedHeader');
         }
     }
 };
@@ -22,25 +22,25 @@ const deselectColumns = (columns) => {
         const columnCells = columns[columnIndex].children;
         const cellCount = columnCells.length;
         for (let cellIndex = 0; cellIndex < cellCount; cellIndex++) {
-            columnCells[cellIndex].classList.remove('parentBoxColor');
-            columnCells[cellIndex].classList.remove('box-border');
+            columnCells[cellIndex].classList.remove('selectedHeader');
+            columnCells[cellIndex].classList.remove('selectedCell');
         }
     }
 };
-const onBoxClicked = (event) => {
-    const selectedBox = event.currentTarget;
-    currentSelectedBox = selectedBox;
-    deselectColumns(selectedBox.parentNode.parentNode.children);
-    selectBox(selectedBox);
+const onCellClicked = (event) => {
+    const selectedCell = event.currentTarget;
+    currentSelectedCell = selectedCell;
+    deselectColumns(selectedCell.parentNode.parentNode.children);
+    selectCell(selectedCell);
 };
 
-const boxes = document.getElementsByClassName('box');
-Array.from(boxes).forEach(box => box.addEventListener('click', onBoxClicked));
+const cells = document.getElementsByClassName('cell');
+Array.from(cells).forEach(cell => cell.addEventListener('click', onCellClicked));
 
-//create function to connect box with type input
+//create function to connect cell with type input
 const inputHandler = (event) => {
-    if (currentSelectedBox) {
-        currentSelectedBox.innerHTML = event.currentTarget.value;
+    if (currentSelectedCell) {
+        currentSelectedCell.innerHTML = event.currentTarget.value;
     }
 };
 
