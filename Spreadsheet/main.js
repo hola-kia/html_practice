@@ -1,22 +1,10 @@
-const spreadsheet = document.querySelector(".table");
-const columns = spreadsheet.children;
-const colArray = Array.from(columns);
 const boxes = document.getElementsByClassName('box');
 
 ////////////////////////////////////////////////////////////////////
 
 
-//create table's nested array
-const makeNestedArray = array => {
-    const all = [];
-    for(let i = 0; i < array.length; i++) {
-        const colBoxes = Array.from(array[i].children);
-        all.push(colBoxes); 
-    }
-    return all;
-};
 
-const table = makeNestedArray(colArray);
+
 
 
 
@@ -72,7 +60,7 @@ function deselect(e) {
 const input = document.getElementById('fxInput');
 const selectedBox = document.getElementsByClassName('box box-border')
 
-function type(e) {
+function type() {
     selectedBox[0].innerHTML = input.value;
 };
 
