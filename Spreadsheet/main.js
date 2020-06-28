@@ -1,7 +1,3 @@
-const boxes = document.getElementsByClassName('box');
-
-////////////////////////////////////////////////////////////////////
-
 function selectHandler(event) {
     const selectedBoxId = event.path[0].id;
     const rowHeaders = document.getElementById('numbers').children;
@@ -40,8 +36,11 @@ function deselectHandler(event) {
     }
 }
 
-[...boxes].forEach(box => box.addEventListener('click', deselectHandler));
-[...boxes].forEach(box => box.addEventListener('click', selectHandler));
+const boxes = document.getElementsByClassName('box');
+Array.from(boxes).forEach(box => {
+    box.addEventListener('click', deselectHandler);
+    box.addEventListener('click', selectHandler);
+});
 
 //////////////////////////////////////////////////////////////
 
