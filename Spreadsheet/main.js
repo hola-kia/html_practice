@@ -1,6 +1,4 @@
-function selectHandler(event) {
-    const selectedBox = event.path[0];
-
+const selectBox = (selectedBox) => {
     if (selectedBox.parentNode.id !== 'numbers') {
         if (selectedBox.id === '0') {
             selectedBox.parentNode.classList.add('parentBoxColor');
@@ -15,10 +13,8 @@ function selectHandler(event) {
             selectedBoxRowHeader.classList.add('parentBoxColor');
         }
     }
-}
-
-function deselectHandler(event) {
-    const columns = event.path[2].children;
+};
+const deselectColumns = (columns) => {
     const columnCount = columns.length;
     for (let columnIndex = 0; columnIndex < columnCount; columnIndex++) {
         const columnCells = columns[columnIndex].children;
@@ -28,13 +24,14 @@ function deselectHandler(event) {
             columnCells[cellIndex].classList.remove('box-border');
         }
     }
-}
+};
+const onBoxClicked = (event) => {
+    deselectColumns(event.path[2].children);
+    selectBox(event.path[0]);
+};
 
 const boxes = document.getElementsByClassName('box');
-Array.from(boxes).forEach(box => {
-    box.addEventListener('click', deselectHandler);
-    box.addEventListener('click', selectHandler);
-});
+Array.from(boxes).forEach(box => box.addEventListener('click', onBoxClicked));
 
 //////////////////////////////////////////////////////////////
 
