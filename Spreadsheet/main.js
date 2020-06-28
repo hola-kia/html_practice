@@ -21,15 +21,16 @@ function selectHandler(event) {
 
 function deselectHandler(event) {
     const columns = event.path[2].children;
-    for (let columnIndex = 0; columnIndex < columns.length; columnIndex++) {
+    const columnCount = columns.length;
+    for (let columnIndex = 0; columnIndex < columnCount; columnIndex++) {
         if (columns[columnIndex].classList.value === 'box parentBoxColor') {
             console.log(columns[columnIndex]);
             columns[columnIndex].classList.remove('parentBoxColor');
         }
 
-        let columnCells = columns[columnIndex].children;
-
-        for (let cellIndex = 0; cellIndex < columnCells.length; cellIndex++) {
+        const columnCells = columns[columnIndex].children;
+        const cellCount = columnCells.length;
+        for (let cellIndex = 0; cellIndex < cellCount; cellIndex++) {
             if (columnCells[cellIndex].classList.value == 'box parentBoxColor' || columnCells[cellIndex].classList.value == 'box box-border') {
                 columnCells[cellIndex].classList.remove('parentBoxColor');
                 columnCells[cellIndex].classList.remove('box-border');
