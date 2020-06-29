@@ -22,24 +22,6 @@ const table = makeNestedArray(colArray);
 
 //create and toggle css class function
 
-/*
-function removeBorder(e) {
-    const cols = e.path[2].children;
-
-    for(let i = 0; i < cols.length; i++) {
-        let x = cols[i].children;
-        for(let j = 0; j < x.length; j++) {
-            if(x[j].classList.value !== 'box parentBoxColor' || x[j].classList.value !== 'box box-border') {
-                return
-            } else {
-                x[j].classList.remove('parentBoxColor');
-                x[j].classList.remove('box-border');
-            }
-        }
-    }; 
-};
-*/
-
 function select(e) {
     const selectedBoxId = e.path[0].id;
     const x = document.getElementById('numbers').children;
