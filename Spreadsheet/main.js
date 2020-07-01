@@ -1,12 +1,11 @@
-const spreadsheet = document.querySelector(".table");
-const columns = spreadsheet.children;
-const colArray = Array.from(columns);
-const boxes = document.getElementsByClassName('box');
+//const spreadsheet = document.querySelector(".table");
+//const columns = spreadsheet.children;
+//const colArray = Array.from(columns);
 //console.log();
 
 ////////////////////////////////////////////////////////////////////
 
-
+/*
 //create table's nested array
 const makeNestedArray = array => {
     const all = [];
@@ -18,55 +17,56 @@ const makeNestedArray = array => {
 };
 
 const table = makeNestedArray(colArray);
-
+*/
 
 //create and toggle css class function
 
-function select(e) {
-    const selectedBoxId = e.path[0].id;
-    const x = document.getElementById('numbers').children;
-    //console.log(e.path[1]);        
-    if(e.path[0].id === '0') {
-        e.path[1].classList.add('parentBoxColor');
-    } else if(e.path[1].id === 'numbers') {
+function selectHandler(event) {
+    const selectedBox = event.path[0];
+           
+    if (selectedBox.getAttribute('data-row') === '0') {
+        selectedBox.parentNode.classList.add('parentBoxColor');
+    } else if (selectedBox.parentNode.id === 'numbers') {
         return
     } else {
-        this.classList.add('box-border');
+        selectedBox.classList.add('box-border');
                 
-        let selectedBoxColumn = this.parentNode.firstElementChild;
-        selectedBoxColumn.classList.add('parentBoxColor');
-            
-        if(selectedBoxId == x[selectedBoxId].innerHTML) {
-            x[selectedBoxId].classList.add('parentBoxColor');
-        }
+        const selectedBoxColumnHeader = selectedBox.parentNode.firstElementChild;
+        selectedBoxColumnHeader.classList.add('parentBoxColor');
+        
+        const rowHeaders = document.getElementById('numbers').children;
+        const selectedBoxRowHeader = rowHeaders[parseInt(selectedBox.getAttribute('data-row'))];
+        selectedBoxRowHeader.classList.add('parentBoxColor');   
     }
  }; 
 
 
-function deselect(e) {
-    const cols = e.path[2].children;
-    //console.log(e.path[2].firstElementChild.classList);
-    for(let i = 0; i < cols.length; i++) {
-        //console.log();
-        if(cols[i].classList.value === 'box parentBoxColor') {
-            console.log(cols[i]);
-            cols[i].classList.remove('parentBoxColor');
+function deselectHandler(event) {
+    const columns = event.path[2].children;
+    const columnCount = columns.length;
+    for (let columnIndex = 0; columnIndex < columnCount; columnIndex++) {
+        if (columns[columnIndex].classList.value === 'box parentBoxColor') {
+            columns[columnIndex].classList.remove('parentBoxColor');
         };
 
-        let x = cols[i].children;
-
-        for(let j = 0; j < x.length; j++) {
-            if(x[j].classList.value == 'box parentBoxColor' || x[j].classList.value == 'box box-border') {
-                x[j].classList.remove('parentBoxColor');
-                x[j].classList.remove('box-border');
-            }
+        const columnCells = columns[columnIndex].children;
+        const cellCount = columnCells.length;
+        for (let cellIndex = 0; cellIndex < cellCount; cellIndex++) {
+                columnCells[cellIndex].classList.remove('parentBoxColor');
+                columnCells[cellIndex].classList.remove('box-border');   
         }
     }; 
 };
 
+const boxes = document.getElementsByClassName('box');
 
-[...boxes].forEach(box => box.addEventListener('click', deselect));
-[...boxes].forEach(box => box.addEventListener('click', select));
+Array.from(boxes).forEach(box => {
+    box.addEventListener('click', deselectHandler);
+    box.addEventListener('click', selectHandler);
+});
+
+//[...boxes].forEach(box => box.addEventListener('click', deselectHandler));
+//[...boxes].forEach(box => box.addEventListener('click', selectHandler));
 
 
 //////////////////////////////////////////////////////////////
@@ -76,13 +76,16 @@ function deselect(e) {
 const input = document.getElementById('fxInput');
 const selectedBox = document.getElementsByClassName('box box-border')
 
-function type(e) {
-    //console.log(selectedBox);
-    //console.log(typeof input.value);
+function inputHandler(event) {
+    if(selectedBox[0]) {
     selectedBox[0].innerHTML = input.value;
+    };
 };
 
-input.addEventListener('keyup', type); 
+input.addEventListener('input', inputHandler); 
+
+
+
 
 
 
