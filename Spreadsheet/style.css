@@ -70,7 +70,7 @@ header {
     border: none;
 }
 
-.table {
+#table {
     display: flex;
     overflow: scroll;
 }
@@ -93,6 +93,13 @@ header {
 
 .parentBoxColor {
     background-color: #FBFD8A;
+}
+
+.headerStyleOnSelect {
+    background-color: orange;
+    color: blue;
+    font-weight: 600;
+    font-size: 20px;
 }
 
 #numbers .box {

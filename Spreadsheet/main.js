@@ -22,12 +22,16 @@ const table = makeNestedArray(colArray);
 //create and toggle css class function
 
 function selectHandler(event) {
-    const selectedBox = event.path[0];
-           
+    const selectedBox = event.currentTarget;
+         
     if (selectedBox.getAttribute('data-row') === '0') {
         selectedBox.parentNode.classList.add('parentBoxColor');
+        //selectedBox.classList.add('headerStyleOnSelect');
     } else if (selectedBox.parentNode.id === 'numbers') {
-        return
+        const selectedBoxRow = selectedBox.classList[1];
+        const selectedRowCells = document.getElementsByClassName(selectedBoxRow);
+        
+        Array.from(selectedRowCells).forEach(cell => cell.classList.add('parentBoxColor'));
     } else {
         selectedBox.classList.add('box-border');
                 
@@ -42,15 +46,18 @@ function selectHandler(event) {
 
 
 function deselectHandler(event) {
+    const selectedBox = event.currentTarget;
     const columns = event.path[2].children;
-    const columnCount = columns.length;
-    for (let columnIndex = 0; columnIndex < columnCount; columnIndex++) {
-        if (columns[columnIndex].classList.value === 'box parentBoxColor') {
-            columns[columnIndex].classList.remove('parentBoxColor');
-        };
+    const tableColumns = document.getElementById('table').children;
+    const columnCount = tableColumns.length;
 
-        const columnCells = columns[columnIndex].children;
+    //console.log(table.length);
+    for (let columnIndex = 0; columnIndex < columnCount; columnIndex++) {
+        tableColumns[columnIndex].classList.remove('parentBoxColor');        
+        
+        const columnCells = tableColumns[columnIndex].children;
         const cellCount = columnCells.length;
+        //console.log(columnCells);
         for (let cellIndex = 0; cellIndex < cellCount; cellIndex++) {
                 columnCells[cellIndex].classList.remove('parentBoxColor');
                 columnCells[cellIndex].classList.remove('box-border');   
