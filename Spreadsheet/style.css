@@ -82,6 +82,10 @@ header {
     line-height: 30px;
 }
 
+.cell.rowHeader, .cell.cornerCell {
+    width: 60px;
+}
+
 .selectedCell {
     border: 1px solid orange;
     background-color: white;
@@ -92,8 +96,4 @@ header {
 
 .selectedHeader {
     background-color: #FBFD8A;
-}
-
-.cell.rowHeader, .cell.cornerCell {
-    width: 60px;
 }
