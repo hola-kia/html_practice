@@ -1,94 +1,40 @@
-//const spreadsheet = document.querySelector(".table");
-//const columns = spreadsheet.children;
-//const colArray = Array.from(columns);
-//console.log();
+let currentSelectedCells = [];
 
-////////////////////////////////////////////////////////////////////
-
-/*
-//create table's nested array
-const makeNestedArray = array => {
-    const all = [];
-    for(let i = 0; i < array.length; i++) {
-        const colBoxes = Array.from(array[i].children);
-        all.push(colBoxes); 
-    }
-    return all;
+const toggleCell = cell => {
+    const isHeader = cell.classList.contains('columnHeader') || cell.classList.contains('rowHeader');
+    cell.classList.toggle(isHeader ? 'selectedHeader' : 'selectedCell');
 };
+const cellClickHandler = event => {
+    const clickedCell = event.currentTarget;
+    const cellColumn = parseInt(clickedCell.getAttribute('data-column'));
+    const cellRow = parseInt(clickedCell.getAttribute('data-row'));
 
-const table = makeNestedArray(colArray);
-*/
+    currentSelectedCells.forEach(cell => toggleCell(cell));
 
-//create and toggle css class function
-
-function selectHandler(event) {
-    const selectedBox = event.path[0];
-           
-    if (selectedBox.getAttribute('data-row') === '0') {
-        selectedBox.parentNode.classList.add('parentBoxColor');
-    } else if (selectedBox.parentNode.id === 'numbers') {
-        return
-    } else {
-        selectedBox.classList.add('box-border');
-                
-        const selectedBoxColumnHeader = selectedBox.parentNode.firstElementChild;
-        selectedBoxColumnHeader.classList.add('parentBoxColor');
-        
-        const rowHeaders = document.getElementById('numbers').children;
-        const selectedBoxRowHeader = rowHeaders[parseInt(selectedBox.getAttribute('data-row'))];
-        selectedBoxRowHeader.classList.add('parentBoxColor');   
-    }
- }; 
-
-
-function deselectHandler(event) {
-    const columns = event.path[2].children;
-    const columnCount = columns.length;
-    for (let columnIndex = 0; columnIndex < columnCount; columnIndex++) {
-        if (columns[columnIndex].classList.value === 'box parentBoxColor') {
-            columns[columnIndex].classList.remove('parentBoxColor');
-        };
-
-        const columnCells = columns[columnIndex].children;
-        const cellCount = columnCells.length;
-        for (let cellIndex = 0; cellIndex < cellCount; cellIndex++) {
-                columnCells[cellIndex].classList.remove('parentBoxColor');
-                columnCells[cellIndex].classList.remove('box-border');   
+    let selectedCells = [];
+    if (!clickedCell.classList.contains('cornerCell')) {
+        if (cellRow === 0) {
+            // Clicked cell is a column header
+            selectedCells = document.querySelectorAll(`.cell[data-column="${cellColumn}"]`);
+        } else if (cellColumn === 0) {
+            // Clicked cell is a row header
+            selectedCells = document.querySelectorAll(`.cell[data-row="${cellRow}"]`);
+        } else {
+            // Clicked cell is a regular cell
+            selectedCells = document.querySelectorAll(`.cell[data-column="${cellColumn}"][data-row="${cellRow}"]`);
         }
-    }; 
+        selectedCells.forEach(cell => toggleCell(cell));
+    }
+
+    currentSelectedCells = Array.from(selectedCells);
 };
+const cells = document.querySelectorAll('.cell');
+cells.forEach(cell => cell.addEventListener('click', cellClickHandler));
 
-const boxes = document.getElementsByClassName('box');
-
-Array.from(boxes).forEach(box => {
-    box.addEventListener('click', deselectHandler);
-    box.addEventListener('click', selectHandler);
-});
-
-//[...boxes].forEach(box => box.addEventListener('click', deselectHandler));
-//[...boxes].forEach(box => box.addEventListener('click', selectHandler));
-
-
-//////////////////////////////////////////////////////////////
-
-//create function to connect box with type input
-
-const input = document.getElementById('fxInput');
-const selectedBox = document.getElementsByClassName('box box-border')
-
-function inputHandler(event) {
-    if(selectedBox[0]) {
-    selectedBox[0].innerHTML = input.value;
-    };
+const fxInput = document.querySelector('#fxInput > input');
+const fxInputHandler = event => {
+    currentSelectedCells
+        .filter(cell => !cell.classList.contains('columnHeader') && !cell.classList.contains('rowHeader'))
+        .forEach(cell => cell.innerHTML = event.currentTarget.value);
 };
-
-input.addEventListener('input', inputHandler); 
-
-
-
-
-
-
-
-
-
+fxInput.addEventListener('input', fxInputHandler);
