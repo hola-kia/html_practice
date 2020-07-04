@@ -9,23 +9,21 @@ body {
     background-color: #DDF3F5;
 }
 
-.top-header {
+header {
     display: flex;
+    align-items: center;
     padding: 20px;
     border-bottom: 1px solid #01A9B4;
 }
 
-#icon {
+#titleIcon {
     height: 80px;
     overflow: hidden;
 }
 
-#title {
-    padding-left: 30px;
-    padding-top: 20px;
-}
-
-#title input {
+#titleInput {
+    height: 40px;
+    margin-left: 30px;
     font-size: 25px;
     border: none;
     line-height: 40px;
