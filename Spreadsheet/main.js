@@ -33,8 +33,8 @@ cells.forEach(cell => cell.addEventListener('click', cellClickHandler));
 
 const fxInput = document.querySelector('#fxInput > input');
 const fxInputHandler = event => {
-    currentSelectedCells
-        .filter(cell => !cell.classList.contains('columnHeader') && !cell.classList.contains('rowHeader'))
-        .forEach(cell => cell.innerHTML = event.currentTarget.value);
+    if (currentSelectedCells.length === 1) {
+        currentSelectedCells[0].innerHTML = event.currentTarget.value;
+    }
 };
 fxInput.addEventListener('input', fxInputHandler);
