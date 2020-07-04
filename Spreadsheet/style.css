@@ -29,7 +29,7 @@ header {
     line-height: 40px;
 }
 
-.main-top {
+#fxPanel {
     display: flex;
     align-items: center;
     border-width: 1px 0;
@@ -37,21 +37,21 @@ header {
     border-color: #01A9B4;
 }
 
-#fx img {
-    padding-top: 5px;    
+#fxIcon {
+    padding: 0 10px;
 }
 
-#fx {
-    padding: 0 10px;
-} 
+#fxIcon img {
+    padding-top: 5px;
+}
 
-#table-input {
-    width: 100%;
-    padding-left: 10px;
+#fxInput {
+    flex: 1;
+    padding: 0 10px;
     border-left: 1px solid #01A9B4;
 }
 
-#table-input input {
+#fxInput input {
     width: 100%;
     height: 35px;
     border: none;
