@@ -54,7 +54,6 @@ header {
 
 #fx {
     padding: 0 10px;
-    /* border-right: 1px solid #e8eaed; */
 } 
 
 #table-input {
@@ -75,7 +74,7 @@ header {
     overflow: scroll;
 }
 
-.box {
+.cell {
     border: 1px solid #01A9B4;
     width: 100px;
     height: 30px;
@@ -83,7 +82,7 @@ header {
     line-height: 30px;
 }
 
-.box-border {
+.selectedCell {
     border: 1px solid orange;
     background-color: white;
     font-size: 15px;
@@ -91,13 +90,10 @@ header {
     text-align: center;
 }
 
-.parentBoxColor {
+.selectedHeader {
     background-color: #FBFD8A;
 }
 
-#numbers .box {
+.cell.rowHeader, .cell.cornerCell {
     width: 61px;
 }
-
-
-
