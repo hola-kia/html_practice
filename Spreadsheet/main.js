@@ -1,10 +1,3 @@
-//const spreadsheet = document.querySelector(".table");
-//const columns = spreadsheet.children;
-//const colArray = Array.from(columns);
-//console.log();
-
-////////////////////////////////////////////////////////////////////
-
 /*
 //create table's nested array
 const makeNestedArray = array => {
@@ -33,8 +26,11 @@ function selectHandler(event) {
         
         Array.from(selectedRowCells).forEach(cell => cell.classList.add('parentBoxColor'));
     } else {
+        selectedBox.setAttribute('contentEditable', true);
+        input.value = selectedBox.innerHTML;
+
         selectedBox.classList.add('box-border');
-                
+           
         const selectedBoxColumnHeader = selectedBox.parentNode.firstElementChild;
         selectedBoxColumnHeader.classList.add('parentBoxColor');
         
@@ -44,20 +40,18 @@ function selectHandler(event) {
     }
  }; 
 
-
 function deselectHandler(event) {
     const selectedBox = event.currentTarget;
     const columns = event.path[2].children;
     const tableColumns = document.getElementById('table').children;
     const columnCount = tableColumns.length;
 
-    //console.log(table.length);
     for (let columnIndex = 0; columnIndex < columnCount; columnIndex++) {
         tableColumns[columnIndex].classList.remove('parentBoxColor');        
         
         const columnCells = tableColumns[columnIndex].children;
         const cellCount = columnCells.length;
-        //console.log(columnCells);
+        
         for (let cellIndex = 0; cellIndex < cellCount; cellIndex++) {
                 columnCells[cellIndex].classList.remove('parentBoxColor');
                 columnCells[cellIndex].classList.remove('box-border');   
@@ -70,26 +64,38 @@ const boxes = document.getElementsByClassName('box');
 Array.from(boxes).forEach(box => {
     box.addEventListener('click', deselectHandler);
     box.addEventListener('click', selectHandler);
+    box.addEventListener('input', selectedBoxInputHandler);
 });
 
 //[...boxes].forEach(box => box.addEventListener('click', deselectHandler));
 //[...boxes].forEach(box => box.addEventListener('click', selectHandler));
 
-
 //////////////////////////////////////////////////////////////
 
-//create function to connect box with type input
+//create functions to connect selected box with type input
 
 const input = document.getElementById('fxInput');
-const selectedBox = document.getElementsByClassName('box box-border')
+const selectedBox = document.getElementsByClassName('box box-border');
 
 function inputHandler(event) {
     if(selectedBox[0]) {
-    selectedBox[0].innerHTML = input.value;
+        selectedBox[0].innerHTML = input.value;
+    };
+};
+
+function selectedBoxInputHandler(event) {
+    if(selectedBox[0]) {
+        input.value = selectedBox[0].innerHTML;
     };
 };
 
 input.addEventListener('input', inputHandler); 
+
+
+
+
+
+
 
 
 
