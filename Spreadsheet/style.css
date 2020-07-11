@@ -11,7 +11,11 @@ body {
 
 header {
     width: 100%;
-    height: 150px;
+    height: 200px;
+    position: fixed;
+    top: 0;
+    z-index: 10;
+    background-color: #DDF3F5;
 }
 
 .top-header {
@@ -38,6 +42,10 @@ header {
     line-height: 40px;
 }
 
+.bottom-header {
+    height: 33px;
+}
+
 .main-top {
     display: flex;
     align-items: center;
@@ -57,6 +65,10 @@ header {
     /* border-right: 1px solid #e8eaed; */
 } 
 
+main {
+    position: absolute;
+}
+
 #table-input {
     height: 35px;
     width: 100%;
@@ -70,9 +82,16 @@ header {
     border: none;
 }
 
-.table {
+#table {
     display: flex;
-    overflow: scroll;
+    position: absolute;
+    
+}
+
+.column {
+    position: relative;
+    padding-top: 200px;
+    background-color: #DDF3F5;
 }
 
 .box {
@@ -91,13 +110,38 @@ header {
     text-align: center;
 }
 
+[class="box 0"] {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 200px;
+    z-index: 3;
+    background-color: #DDF3F5;
+}
+
 .parentBoxColor {
     background-color: #FBFD8A;
+}
+
+.headerStyleOnSelect {
+    background-color: orange;
+    color: blue;
+    font-weight: 600;
+    font-size: 20px;
+}
+
+#numbers {
+    position: -webkit-sticky;
+    position: sticky;
+    left: 0;
+    z-index: 3;
+
 }
 
 #numbers .box {
     width: 61px;
 }
+
+
 
 
 
