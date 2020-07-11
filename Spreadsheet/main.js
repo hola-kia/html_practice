@@ -1,16 +1,42 @@
-/*
-//create table's nested array
-const makeNestedArray = array => {
-    const all = [];
-    for(let i = 0; i < array.length; i++) {
-        const colBoxes = Array.from(array[i].children);
-        all.push(colBoxes); 
-    }
-    return all;
+//creating columns inside <div id="table">
+
+function createColumns(parent) {
+    for (let i = 64; i <= 90; i++) {
+        const column = document.createElement('div');
+        parent.appendChild(column);
+        column.className = 'column';
+
+        if (i === 64) {
+            column.id = 'numbers';
+        } else {
+            column.id = `${String.fromCharCode(i)}`;
+        };
+    };
 };
 
-const table = makeNestedArray(colArray);
-*/
+const table = document.getElementById('table');
+createColumns(table);
+
+//creating cells(50) in each column and adding row numbers and column letters
+
+function createCells(parent) {
+    for (let i = 0; i <= 50; i++) {
+        const cell = document.createElement('div');
+        parent.appendChild(cell);
+        cell.className = `box ${i.toString()}`;
+        cell.setAttribute('data-row', `${i.toString()}`);
+        
+        if (parent.id === 'numbers' && i > 0) {            
+            cell.innerHTML = `${i.toString()}`;                
+        } else if (parent.id !== 'numbers' && i === 0) {
+            cell.innerHTML = parent.id;
+        }; 
+    };
+};
+
+const columns = document.getElementsByClassName('column');
+[...columns].forEach(column => createCells(column));
+
 
 //create and toggle css class function
 
@@ -19,7 +45,8 @@ function selectHandler(event) {
          
     if (selectedBox.getAttribute('data-row') === '0') {
         selectedBox.parentNode.classList.add('parentBoxColor');
-        //selectedBox.classList.add('headerStyleOnSelect');
+        selectedBox.style.backgroundColor = 'rgb(250, 249, 138)';
+        
     } else if (selectedBox.parentNode.id === 'numbers') {
         const selectedBoxRow = selectedBox.classList[1];
         const selectedRowCells = document.getElementsByClassName(selectedBoxRow);
@@ -32,7 +59,8 @@ function selectHandler(event) {
         selectedBox.classList.add('box-border');
            
         const selectedBoxColumnHeader = selectedBox.parentNode.firstElementChild;
-        selectedBoxColumnHeader.classList.add('parentBoxColor');
+        //selectedBoxColumnHeader.classList.add('parentBoxColor');
+        selectedBoxColumnHeader.style.backgroundColor = 'rgb(250, 249, 138)';
         
         const rowHeaders = document.getElementById('numbers').children;
         const selectedBoxRowHeader = rowHeaders[parseInt(selectedBox.getAttribute('data-row'))];
@@ -54,7 +82,12 @@ function deselectHandler(event) {
         
         for (let cellIndex = 0; cellIndex < cellCount; cellIndex++) {
                 columnCells[cellIndex].classList.remove('parentBoxColor');
-                columnCells[cellIndex].classList.remove('box-border');   
+                columnCells[cellIndex].classList.remove('box-border');
+                
+                
+                if (columnCells[cellIndex].style.backgroundColor === 'rgb(250, 249, 138)') {
+                    columnCells[cellIndex].style.backgroundColor = 'rgb(221, 243, 245)';
+                } 
         }
     }; 
 };

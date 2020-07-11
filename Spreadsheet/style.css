@@ -91,6 +91,7 @@ main {
 .column {
     position: relative;
     padding-top: 200px;
+    background-color: #DDF3F5;
 }
 
 .box {
@@ -109,6 +110,14 @@ main {
     text-align: center;
 }
 
+[class="box 0"] {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 200px;
+    z-index: 3;
+    background-color: #DDF3F5;
+}
+
 .parentBoxColor {
     background-color: #FBFD8A;
 }
@@ -124,19 +133,12 @@ main {
     position: -webkit-sticky;
     position: sticky;
     left: 0;
-    background-color: #DDF3F5;
     z-index: 3;
+
 }
 
 #numbers .box {
     width: 61px;
-}
-
-[class="box 0"] {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 200px;
-    background-color: #DDF3F5;
 }
 
 
