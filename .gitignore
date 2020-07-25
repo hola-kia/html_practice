@@ -1,0 +1,10 @@
+# Dependency directories
+/node_modules
+
+# OS/IDE specific directories
+.DS_Store
+.idea/
+
+# Logs
+yarn-debug.log*
+yarn-error.log*
