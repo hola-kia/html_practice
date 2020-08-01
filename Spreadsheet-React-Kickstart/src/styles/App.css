@@ -1,0 +1,57 @@
+#pageContainer {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #DDF3F5;
+}
+
+#headerPanel {
+    flex-shrink: 0;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #01A9B4;
+}
+#logo {
+    height: 80px;
+}
+#titleInput {
+    height: 40px;
+    margin-left: 32px;
+    padding: 0 8px;
+    font-size: 24px;
+    border: none;
+}
+
+#controlPanel {
+    flex-shrink: 0;
+}
+
+#cellControls {
+    height: 32px;
+    border-bottom: 1px solid #01A9B4;
+}
+
+#fxControls {
+    display: flex;
+    align-items: center;
+    padding: 4px 0;
+    border-bottom: 1px solid #01A9B4;
+}
+#fxIcon {
+    height: 40px;
+    padding: 8px 20px;
+    border-right: 1px solid #01A9B4;
+}
+#fxInput {
+    flex: 1;
+    height: 36px;
+    margin-left: 12px;
+    padding: 0 8px;
+    border: none;
+}
+
+#contentPanel {
+    flex: 1;
+    height: 0; /* Allows children to be scrollable */
+}

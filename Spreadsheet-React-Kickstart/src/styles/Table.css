@@ -1,0 +1,20 @@
+.table {
+    height: 100%;
+    display: grid;
+    grid-template-columns: 60px 1fr;
+    grid-template-rows: 30px 1fr;
+}
+
+.columnHeader {
+    display: flex;
+    overflow-x: hidden;
+}
+
+.rowHeader {
+    overflow-y: hidden;
+}
+
+.tableBody {
+    display: grid;
+    overflow: auto;
+}

@@ -1,0 +1,18 @@
+.cell {
+    flex-shrink: 0;
+    border: 1px solid #01A9B4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.cell.selected:not(.header) {
+    background-color: white;
+    border: 1px solid orange;
+    color: black;
+}
+
+.cell.selected.header {
+    background-color: #FBFD8A;
+}
