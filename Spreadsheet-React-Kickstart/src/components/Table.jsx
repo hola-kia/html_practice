@@ -9,26 +9,30 @@ const Table = ({ columnCount, rowCount }) => {
     const columnHeaderRef = useRef(null);
     const rowHeaderRef = useRef(null);
 
-    const [ selectedCell, setSelectedCell ] = useState(null);
-    const [ selectedColumn, setSelectedColumn ] = useState(null);
-    const [ selectedRow, setSelectedRow ] = useState(null);
+    const [ selectedCell, setSelectedCell ] = useState({ column: -1, row: -1 });
+    const [ selectedColumn, setSelectedColumn ] = useState(-1);
+    const [ selectedRow, setSelectedRow ] = useState(-1);
 
     // Cell click handler
     const onCellClick = (columnIndex, rowIndex) => () => {
-        setSelectedCell({ row: rowIndex, column: columnIndex });
-        setSelectedColumn(null);
-        setSelectedRow(null);
+        setSelectedCell({ column: columnIndex, row: rowIndex });
+        setSelectedColumn(-1);
+        setSelectedRow(-1);
     };
 
     // Header click handlers
     const onColumnHeaderClick = columnIndex => () => {
-        // TODO: Fill code here
+        setSelectedCell({ column: -1, row: -1 });
+        setSelectedColumn(columnIndex);
+        setSelectedRow(-1);
     };
     const onRowHeaderClick = rowIndex => () => {
-        // TODO: Fill code here
+        setSelectedCell({ column: -1, row: -1 });
+        setSelectedColumn(-1);
+        setSelectedRow(rowIndex);
     };
     const onCornerCellClick = () => {
-        // TODO: Fill code here
+        setSelectedCell({ column: -1, row: -1 });
     };
 
     // Scroll handlers
@@ -41,15 +45,27 @@ const Table = ({ columnCount, rowCount }) => {
         }
     };
 
+    let selectedLabel = '';
+    if (selectedCell.column > 0 && selectedCell.row > 0) {
+        selectedLabel = `${columnName(selectedCell.column)}${selectedCell.row}`;
+    } else if (selectedColumn > 0) {
+        selectedLabel = `Col ${columnName(selectedColumn)}`;
+    } else if (selectedRow > 0) {
+        selectedLabel = `Row ${selectedRow}`;
+    }
+
     return (
         <div className="table">
-            <Cell isHeader onClick={onCornerCellClick} />
+            <Cell isHeader onClick={onCornerCellClick} content={selectedLabel} />
             <div className="columnHeader" ref={columnHeaderRef}>
                 { new Array(columnCount).fill(0).map((_, columnIndex) => (
                     <Cell
                         isHeader
                         content={columnName(columnIndex + 1)}
-                        // TODO: Fill code here
+                        isSelected={
+                            selectedCell.column === columnIndex + 1
+                            || selectedColumn === columnIndex + 1
+                        }
                         onClick={onColumnHeaderClick(columnIndex + 1)}
                         format={{ dimensions: { width: 100 } }}
                         key={columnIndex + 1}
@@ -61,7 +77,10 @@ const Table = ({ columnCount, rowCount }) => {
                     <Cell
                         isHeader
                         content={rowIndex + 1}
-                        // TODO: Fill code here
+                        isSelected={
+                            selectedCell.row === rowIndex + 1
+                            || selectedRow === rowIndex + 1
+                        }
                         onClick={onRowHeaderClick(rowIndex + 1)}
                         format={{ dimensions: { height: 30 } }}
                         key={rowIndex + 1}
@@ -80,10 +99,12 @@ const Table = ({ columnCount, rowCount }) => {
                     new Array(columnCount).fill(0).map((_, columnIndex) => (
                         <Cell
                             isSelected={
-                                selectedCell
-                                && selectedCell.column === columnIndex + 1
-                                && selectedCell.row === rowIndex + 1
-                                // TODO: Fill code here
+                                (
+                                    selectedCell.column === columnIndex + 1
+                                    && selectedCell.row === rowIndex + 1
+                                )
+                                || selectedColumn === columnIndex + 1
+                                || selectedRow === rowIndex + 1
                             }
                             onClick={onCellClick(columnIndex + 1, rowIndex + 1)}
                             format={{ dimensions: { width: 100, height: 30 } }}
